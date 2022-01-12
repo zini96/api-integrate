@@ -1,5 +1,6 @@
 import React,{useEffect,useReducer} from 'react';
 import axios from 'axios';
+import useAsync from './useAsync';
 
 //useAsync에 훅으로 리듀스 함수 reducer 생성
 
@@ -13,6 +14,7 @@ async function getUsers(){
 }
 
 function ApiUsersReducer() {
+    const [state,refetch] = useAsync(getUsers);
     //usereducer로 한번에 받아오지 않고 하나씩 값을 받아오고 싶다면
     //구조분해할당으로 아래처럼 받기
     const {loading,error,data:users} = state;
