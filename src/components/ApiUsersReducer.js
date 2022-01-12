@@ -12,6 +12,8 @@ async function getUsers(){
     )
     return response.data;
 }
+//getUsers처럼 다른 정보도 비동기전송으로 받아와서 관리해줄수 있음
+//useAsync에서 fetch도 새로 만들어서 받아야함
 
 function ApiUsersReducer() {
     const [state,refetch] = useAsync(getUsers);
@@ -29,6 +31,7 @@ function ApiUsersReducer() {
                 {users.map(user=>(
                     <li key={user.id}>{user.username}{user.name}</li>
                 ))}
+                <button onClick={refetch}>다시 불러오기</button>
             </ul>
         </div>
     );

@@ -46,7 +46,7 @@ const ApiUsers = () => {
                     <li key={user.id}>{user.username}{user.name}</li>
                 ))}
             </ul>
-            <button onChange={fetchUsers}>다시 불러오기</button>
+            <button onClick={fetchUsers}>다시 불러오기</button>
         </div>
     );
 };
